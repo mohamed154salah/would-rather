@@ -8,7 +8,7 @@ export function setAuthedUser(id){
     }
 }
 
-export function setUnauthedUser(id){
+export function setUnauthedUser(){
     return{
         type:SET_UNAUTHED_USER,
     }

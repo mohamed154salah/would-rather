@@ -1,13 +1,152 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  font-family: sans-serif;
+  color: #252525;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+a {
+  text-decoration: none;
+  color: #252525;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.btn {
+  text-transform: uppercase;
+  padding: 3px;
+  color: cornsilk;
+  border: 4px solid rgb(255, 255, 255);
+  border-radius:8px 8px;
+  background: rgba(255, 1, 1, 0.733);
+  font-size: 16px;
+  position: relative;
+}
+.login{
+  padding: 5px;
+  margin: auto;
+  margin-top: 20px;
+  width: 50%;
+  border: 3px solid rgb(31, 194, 243);
+  }
+  .drob{
+  padding: 5px;
+  width: 50%;
+  border: 8px solid rgba(29, 143, 196, 0.479);
+  }
+
+.btn:hover {
+  border-color: rgba(0,0,0,.5);
+  text-decoration: none;
+}
+
+.btn:focus {
+  outline: 0;
+  font-weight: 700;
+  border-width: 2px;
+}
+
+.center {
+  text-align: center;
+}
+
+.active {
+  font-weight: bold;
+}
+
+.nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  text-decoration: none;
+}
+
+
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  list-style-type: none;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.avatar {
+  height: 50px;
+  border-radius: 25px;
+  margin: 10px;
+}
+
+.new-tweet {
+  width: 100%;
+  max-width: 590px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.tweet-length {
+  text-align: right;
+  margin-top: 10px;
+  font-size: 20px;
+  color: #C3392A;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgb(115, 215, 228);
+}
+
+li {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+
+}
+li:hover {
+  background-color: rgba(36, 142, 184, 0.562);
+  color: aqua;
+}
+.active {
+  font-weight: bold;
+
+}
+
+.form{
+  padding: 5px;
+  margin: auto;
+  margin-top: 20px;
+  width: 50%;
+  border: 3px solid rgb(31, 194, 243);
+}
+.textarea {
+  border-radius: 4px;
+  border: 1px solid #1100ff;
+  padding: 10px;
+  margin: 10px;
+  font-size: 15px;
+  height: 10px;
+}
+.bt {
+  text-transform: uppercase;
+  padding: 3px;
+  color: rgb(163, 14, 143);
+  border: 4px solid rgb(93, 163, 103);
+  border-radius:8px 8px;
+  background: rgba(0, 255, 0, 0.445);
+  font-size: 16px;
+  position: relative;
 }

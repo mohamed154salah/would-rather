@@ -1,72 +1,76 @@
-import React,{Component} from 'react'
-import {connect} from 'react-redux'
-import {setAuthedUser} from '../actions/authedUser'
-import {Redirect} from 'react-router-dom'
-import Dropdown from 'react-dropdown';
-import 'react-dropdown/style.css';
-class Login extends Component{
-    state={
-        users:{},
-        loginUser:null,
-        redirect_to:false,
-        user_Id:null,
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { setAuthedUser } from "../actions/authedUser";
+import { Route } from "react-router-dom";
+import Home from './Home'
+import "../index.css";
+import Nav from "./Nav";
+
+class Login extends Component {
+  constructor(props) {
+    super(props);
+
+    this.handleValueChange = this.handleValueChange.bind(this);
+  }
+  state = {
+    to_home: false,
+    user_Id: null,
+  };
+
+  handleValueChange(event) {
+    this.props.setAuthedUser(event.target.value);
+    this.setState({ to_home: true });
+  }
+
+  render() {
+    const { users } = this.props;
+    const { to_home, user_Id } = this.state;
+
+    if (to_home === true) {
+      console.log('go home')
+      return <Route  path="/Home" component={Home}/>;
+      
     }
 
-    handleUserLogin=(e,user)=>{
-        e.preventDefault();
-        this.props.loginUser(user)
-        .then(()=>this.setState({user_Id:user.id}))
-        .then(()=> this.setState({redirect_to:true}))
-    }
+    return (
+      <div className='login'>
+        <h1>WOULD RATHER LOGIN</h1>
 
-
-
-    render(){
-
-        const {users}=this.props
-        const {redirect_to,user_Id}=this.state
-
-        if(redirect_to===true){
-            return(
-                <Redirect to={'/home/'+user_Id}/>
-            )
-        }
-        console.log(users.text)
-        const userOptions = Object.keys(users).map(user_Id => ({
-            key: user_Id,
-            value: user_Id,
-            text: users[user_Id].name,
-            image: { avatar: true, src: users[user_Id].avatarURL }
-          }))
-        return(
-
-            <div>
-
-            <h1>WOULD RATHER LOGIN</h1>
-          
-<Dropdown options={userOptions} onChange={this.handleUserLogin} value={this.state.loginUser} placeholder="Select an option" />
-                
-            </div>
-
-        )
-    }
-
-    
-
-
+        <form className='drob'>
+          <div>
+            <select
+              id="exa"
+              onChange={this.handleValueChange}
+            >
+              <option>Select a user</option>
+              {Object.keys(users).map(function (keyName, keyIndex) {
+                return (
+                  <option
+                   key={keyName} 
+                   value={keyName}>
+                   {users[keyName].name}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+          <div>
+            
+          </div>
+        </form>
+      </div>
+    );
+  }
 }
 function mapStateToProps(state) {
-    return{
-        users:state.users,
-    }
-    
+  return {
+    users: state.users,
+  };
 }
 
 function mapDispatchToProps(dispatch) {
-    return{
-        loginUser:(user)=>dispatch(setAuthedUser(user))
-    }
-    
+  return {
+    setAuthedUser: (id) => dispatch(setAuthedUser(id)),
+  };
 }
-
-export default connect(mapStateToProps,mapDispatchToProps)(Login)
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
