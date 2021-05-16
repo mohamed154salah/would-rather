@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { setAuthedUser } from "../actions/authedUser";
-import { Route } from "react-router-dom";
-import Home from './Home'
 import "../index.css";
-import Nav from "./Nav";
 
 class Login extends Component {
   constructor(props) {
@@ -18,45 +15,32 @@ class Login extends Component {
   };
 
   handleValueChange(event) {
+    console.log(event.target.value);
     this.props.setAuthedUser(event.target.value);
     this.setState({ to_home: true });
   }
 
   render() {
     const { users } = this.props;
-    const { to_home, user_Id } = this.state;
-
-    if (to_home === true) {
-      console.log('go home')
-      return <Route  path="/Home" component={Home}/>;
-      
-    }
 
     return (
-      <div className='login'>
+      <div className="login">
         <h1>WOULD RATHER LOGIN</h1>
 
-        <form className='drob'>
+        <form className="drob">
           <div>
-            <select
-              id="exa"
-              onChange={this.handleValueChange}
-            >
+            <select id="exa" onChange={this.handleValueChange}>
               <option>Select a user</option>
               {Object.keys(users).map(function (keyName, keyIndex) {
                 return (
-                  <option
-                   key={keyName} 
-                   value={keyName}>
-                   {users[keyName].name}
+                  <option key={keyName} value={keyName}>
+                    {users[keyName].name}
                   </option>
                 );
               })}
             </select>
           </div>
-          <div>
-            
-          </div>
+          <div></div>
         </form>
       </div>
     );

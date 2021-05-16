@@ -17,13 +17,19 @@ import { showLoading, hideLoading } from 'react-redux-loading'
           dispatch(receiveQuestion(question))
           dispatch(hideLoading())
         })
+
     }
   } 
 
  export function handleSaveQuestion(optionOne,optionTwo){
      return(dispatch,getState)=>{
+      dispatch(showLoading())
          const {authedUser}=getState()
-         return saveQuestion({author:authedUser,optionOne,optionTwo})
+         return saveQuestion({
+          author: authedUser,
+          optionOneText: optionOne,
+          optionTwoText: optionTwo,
+        })
          .then((question)=>{
              dispatch(addQuestion(question))
              dispatch(addQuestionToUser(authedUser,question.id))
@@ -39,9 +45,11 @@ import { showLoading, hideLoading } from 'react-redux-loading'
 
     return(dispatch,getState)=>{
         const {authedUser}=getState()
+        console.log(authedUser, Qid, answer)
+
         dispatch(answerQuestion(authedUser,Qid,answer))
         dispatch(addUserAnswer(authedUser,Qid,answer))
-        return saveQuestionAnswer(authedUser,Qid,answer)
+        return saveQuestionAnswer({authedUser,qid:Qid,answer})
         .catch(e=>{
             console.warn('error in save answer')
         })

@@ -2,7 +2,7 @@ let users = {
   sarahedo: {
     id: 'sarahedo',
     name: 'Sarah Edo',
-    avatarURL: '../assets/pexels-ezekixl-akinnewu-950243.jpg',
+    avatarURL: 'https://cdn.pixabay.com/photo/2016/01/19/17/48/woman-1149911_1280.jpg',
     answers: {
       "8xf0y6ziyjabvozdd253nd": 'optionOne',
       "6ni6ok3ym7mf1p33lnez": 'optionTwo',
@@ -14,7 +14,7 @@ let users = {
   tylermcginnis: {
     id: 'tylermcginnis',
     name: 'Tyler McGinnis',
-    avatarURL:'../assets/pexels-italo-melo-1998865.jpg' ,
+    avatarURL:'https://cdn.pixabay.com/photo/2015/08/05/04/25/people-875617_1280.jpg' ,
     answers: {
       "vthrdm985a262al8qx3do": 'optionOne',
       "xj352vofupe1dqz9emx13r": 'optionTwo',
@@ -24,7 +24,7 @@ let users = {
   johndoe: {
     id: 'johndoe',
     name: 'John Doe',
-    avatarURL:'../assets/pexels-mohammed-hassan-2695792.jpg' ,
+    avatarURL:'https://cdn.pixabay.com/photo/2016/03/24/09/10/men-1276384_1280.jpg' ,
     answers: {
       "xj352vofupe1dqz9emx13r": 'optionOne',
       "vthrdm985a262al8qx3do": 'optionTwo',
@@ -146,7 +146,6 @@ function formatQuestion ({ optionOneText, optionTwoText, author }) {
     }
   }
 }
-
 export function _saveQuestion (question) {
   return new Promise((res, rej) => {
     const authedUser = question.author;
@@ -173,6 +172,7 @@ export function _saveQuestion (question) {
 
 export function _saveQuestionAnswer ({ authedUser, qid, answer }) {
   return new Promise((res, rej) => {
+    console.log(authedUser, qid, answer)
     setTimeout(() => {
       users = {
         ...users,

@@ -19,6 +19,8 @@ import {
     return _saveQuestion(question)
   }
   
-  export function saveQuestionAnswer (authUser,qid,answer) {
-    return _saveQuestionAnswer({authUser,qid,answer})
+  export function saveQuestionAnswer (info) {
+    console.log(info)
+    return _saveQuestionAnswer(info)
   }
+  

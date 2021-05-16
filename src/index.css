@@ -22,7 +22,7 @@ a {
   color: cornsilk;
   border: 4px solid rgb(255, 255, 255);
   border-radius:8px 8px;
-  background: rgba(255, 1, 1, 0.733);
+  background: rgba(1, 26, 255, 0.733);
   font-size: 16px;
   position: relative;
 }
@@ -78,7 +78,7 @@ li {
 }
 
 .avatar {
-  height: 50px;
+  height: 75px;
   border-radius: 25px;
   margin: 10px;
 }
@@ -149,4 +149,48 @@ li:hover {
   background: rgba(0, 255, 0, 0.445);
   font-size: 16px;
   position: relative;
+}
+
+#title {
+  text-align: center;
+  font-family: arial, sans-serif;
+}
+
+#students {
+  text-align: center;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  border: 3px solid #ddd;
+  width: 100%;
+}
+
+#students td, #students th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#students tr:nth-child(even){background-color: #f2f2f2;}
+
+#students tr:hover {background-color: #ddd;}
+
+#students th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #4CAF50;
+  color: white;
+}
+.sp{
+  float: left;
+  padding: 5px;
+  margin: 5px;
+}
+.mark{
+  color: brown;
+  font-size: 25px;
+}
+.lab{
+  background-color: #4CAF50;
+  border: 4px solid rgb(93, 163, 103);
+  border-radius:8px 8px;
 }
