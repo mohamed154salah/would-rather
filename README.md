@@ -1,10 +1,10 @@
-### Would Rather Project
+# Would Rather Project
 
 this project is about game is called would rather the user login and have menu he can 
-# add question
-# use dashboard
-# use leaderboard
-# log out
+## add question
+## use dashboard
+## use leaderboard
+## log out
 
 
 
