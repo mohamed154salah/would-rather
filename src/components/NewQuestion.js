@@ -73,6 +73,7 @@ function mapStateToProps({ authedUser }) {
     authedUser,
   };
 }
+
 function mapDispatchToProps(dispatch) {
   return {
     add: (optionOne, optionTwo) => {

@@ -9,7 +9,7 @@ class Question extends Component {
     this.loadQuestionDetails = this.routeChange.bind(this);
   }
   QuestionDetails(e, questionId) {
-    let path = `/question/` + questionId;
+    let path = `/questions/` + questionId;
     this.props.history.push(path);
   }
   render() {

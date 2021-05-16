@@ -14,13 +14,13 @@ function Routes(props) {
     <div className="container">
       <Switch>
         {props.notLoggedIn ? (
-          <Route path="/" exact component={Login} />
+          <Route component={Login} />
         ) : (
           <Fragment>
             <Route path="/" exact component={Dashboard} />
             <Route path="/leaderboard" exact component={LeaderBoard} />
             <Route path="/add" component={NewQuestion} />
-            <Route path="/question/:id" component={AnswerQuestion} />
+            <Route path="/questions/:id" component={AnswerQuestion} />
           </Fragment>
         )}
         <Route component={Error} />
