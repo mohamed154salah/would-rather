@@ -1,15 +1,23 @@
-import React from "react"
-const Error = ({ history }) => (
-    <div>
-        
+import React,{Component} from "react"
+import { connect } from "react-redux";
+
+class Error extends Component {
+  
+  render(){
+    return(
+      <div>
+
       <h2>404</h2>
         <p>Page Not Found</p>
-        <button onClick={() => history.push("/")}>
+        <button onClick={() => this.props.history.push("/")}>
           Go Home
         </button>
         </div>
-
+    )
+  }
+  
+}
     
-  );
- 
-export default Error;
+  
+  
+export default connect() (Error);

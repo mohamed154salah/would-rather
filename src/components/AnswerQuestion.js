@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { handleSaveAnswer } from "../actions/shared";
 import { Col } from "reactstrap";
+import { Switch, Route } from "react-router-dom";
 import Nav from "./Nav";
+import Error from "./error";
 import "react-tabs/style/react-tabs.css";
 import AnswerdPoll from "./AnswerdPoll";
 class AnswerQuestion extends Component {
@@ -26,7 +28,10 @@ class AnswerQuestion extends Component {
   };
   render() {
     const { finish, option } = this.state;
-    const { questions, id } = this.props;
+    const { questions, id ,x} = this.props;
+    if(questions===id&id===x){
+      return <Route component={Error} />
+    }
     if (finish === true) {
       return (<div>
         <Nav />
@@ -79,9 +84,16 @@ class AnswerQuestion extends Component {
 }
 function mapStateToProps({ question, users, authedUser }, { match }) {
   const { id } = match.params;
-  const questions = question[id];
+  let questions,questionAuthor,x
+x=Object.values(question).filter(x => x.id === id)
+  if(x.length>0){
+    questions = question[id];
+     questionAuthor = users[questions.author];
+}
+  else{
+    return {i:1,c:1,b:1}
+  }
 
-  const questionAuthor = users[questions.author];
 
   return {
     id,
