@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { handleSaveAnswer } from "../actions/shared";
 import { Col } from "reactstrap";
-import { Switch, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import Nav from "./Nav";
 import Error from "./error";
 import "react-tabs/style/react-tabs.css";
