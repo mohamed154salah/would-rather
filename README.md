@@ -1,5 +1,5 @@
 # Would Rather Project
-#[Link to Would Rather Project](https://wouldrather.netlify.app/)
+[Link to Would Rather Project](https://wouldrather.netlify.app/)
 
 this project is about game is called would rather the user login and have menu he can 
 ## 1-add question
